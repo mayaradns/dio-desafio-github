@@ -1,0 +1,89 @@
+Git - controle de versionamento
+github - repositório remoto 
+
+Configuração inicial do Git 
+
+No terminal:
+	git config --global user.name "nome_do_usuário"
+	git config --global user.email "email_usuário"
+	git config --global core.editor nome_da_IDE
+	
+	git config --list (lista as configurações do usuário criado no git)
+	
+
+Entrar na pasta do projeto:
+
+	git init (inicializa o repositório dentro do git)
+	git status (ver arquivos não monitorados ainda (untracked)
+	git add nome_arquivo (add arquivo não trackeado)
+	git add * (add todos os arquivos não trackeados)
+	git commit -m "comentário sobre o que foi feito" (avisa ao git para criar um snapshot do projeto)
+	
+	git log (mostra todos os commits feitos(histórico))
+	git show chave_hash (mostra todas as alterações feitas nesse hash)
+	
+	git diff (mostra todas as modificações feitas)
+	git diff --name-only (mostra apenas os nomes dos arquivos modificados)
+	git checkout nome_do_arquivo (volta a configuração inicial)
+	git checkout HEAD nome_do_arquivo (
+	
+
+Desfazendo coisas
+
+	git reset --soft hash(volta pro estado antes do commit, arquivo em staged)
+	git reset --mixed hash(volta pro estado antes do commit, antes do staged)
+	git reset --hard hash(volta pra última configuração, ignora o commit e tudo que foi feito nele)
+	
+
+Cadastrando máquina no github
+
+primeiro é preciso habilitar o computador pra trabalhar com o github
+- cadastrar chave ssh
+- ssh -keygen -t ed25519 -c "meu_email_do_github" (enter, não precisa colocar senha)(tem os passos no github)
+- vá até a pasta oculta .ssh (na pasta pessoal)
+- cat id_rsa.pub
+- copiar chave e cadastrar no github em configurações -> ssh and GPG keys.
+
+
+Ligando repositório local ao repositório remoto
+
+ao clicar no + ou criar novo repositório, vai aparecer as configurações pra serem feitas. para criar um novo repositório ou puxar um repositório.
+
+
+Enviando modificações pro github
+
+	git push (envia modificações)
+	git pull (mostra modificações feitas no repositório remoto)
+	git merge (mesclar modificações, unindo branchs)
+	
+
+Branch
+
+É um ponteiro móvel que leva a um commit. Podemos modificar o projeto sem alterar o local principal (master). Múltiplas pessoas podem estar trabalhando.
+	git branch nome_branch (cria novo branch)
+	git branch (mostra as branch existentes e na qual vc está no momento)
+	git checkout nome_branch (ir para o branch que eu quero)
+	git branch -D nome_branch (apaga a branch)
+	
+
+Clonando um repositório
+
+	git clone endereço_do_clone nome_da_pasta (nome que eu quiser)
+modificações feitas para mim
+
+
+Fork de um projeto (contribuir com outro projeto)
+
+modificações feitas para trabalhar com outra pessoa
+Pega um projeto que não é seu e faz uma cópia para vc.
+
+
+Ignorando arquivos no projeto
+
+	Criar arquivo .gitignore
+	Abrir e digitar nome do arquivo.extensão
+
+
+Versionando com Tags
+
+	git tag -a 1.0.0 -m 'readme finalizado' (1.0.0 número da versão)
